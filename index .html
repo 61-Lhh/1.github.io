@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刘莹 | 视觉传达设计作品集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400,600,700,800,900&family=Merriweather:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Nunito', sans-serif; 
+            /* 🌟 超淡温柔渐变背景（几乎透明感） */
+            background: linear-gradient(135deg, #fffcfd, #fdfaff, #fcfeff);
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* 像素风浮动动画 */
+        .pixel-float {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.85;
+            font-size: 20px;
+            animation: floatAnim 7s ease-in-out infinite;
+        }
+
+        @keyframes floatAnim {
+            0%   { transform: translate(0, 0); }
+            50%  { transform: translate(0, -35px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .font-serif-italic { font-family: 'Merriweather', serif; }
+        .card-hover { transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .btn-glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); }
+        @keyframes blob { 0% { transform: translate(0,0) rotate(0deg); } 50% { transform: translate(20px,-20px) rotate(180deg); } 100% { transform: translate(0,0) rotate(0deg); } }
+        .animate-blob { animation: blob 20s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        
+        .nav-container { position: relative; display: flex; gap: 4px; }
+        .nav-item { position: relative; z-index: 2; padding: 8px 16px; cursor: pointer; }
+        .nav-highlight { position: absolute; top: 0; left: 0; height: 100%; background: black; border-radius: 9999px; transition: all 0.3s; z-index: 1; }
+        .nav-highlight-text { color: white !important; }
+
+        .resume-modal { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); display:none; z-index:9999; backdrop-filter: blur(8px); }
+        .resume-modal.active { display: flex; align-items:center; justify-content: center; }
+        .resume-content { width:92%; max-width:900px; height:90vh; background:white; border-radius:20px; padding:20px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+        .close-resume { position:absolute; top:15px; right:15px; width:40px; height:40px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10; }
+        .close-resume:hover { background:#000; color:#fff; }
+    </style>
+</head>
+<body class="antialiased text-gray-800 overflow-x-hidden">
+
+<!-- 浮动小元素 -->
+<div class="pixel-float" style="top:10%; left:8%; color:#10b981;"><i class="fa-solid fa-dinosaur"></i></div>
+<div class="pixel-float" style="top:30%; right:10%; color:#ff69b4;"><i class="fa-solid fa-heart"></i></div>
+<div class="pixel-float" style="top:55%; left:15%; color:#a855f7;"><i class="fa-solid fa-star"></i></div>
+<div class="pixel-float" style="top:75%; right:12%; color:#06b6d4;"><i class="fa-solid fa-fish"></i></div>
+<div class="pixel-float" style="top:5%; right:15%; color:#f97316; font-size:16px;"><i class="fa-solid fa-cat"></i></div>
+<div class="pixel-float" style="top:20%; left:22%; color:#ec4899; font-size:16px;"><i class="fa-solid fa-moon"></i></div>
+<div class="pixel-float" style="top:40%; left:5%; color:#0ea5e9; font-size:16px;"><i class="fa-solid fa-bird"></i></div>
+<div class="pixel-float" style="top:65%; right:30%; color:#f59e0b; font-size:16px;"><i class="fa-solid fa-sun"></i></div>
+<div class="pixel-float" style="top:85%; left:30%; color:#8b5cf6; font-size:16px;"><i class="fa-solid fa-butterfly"></i></div>
+<div class="pixel-float" style="top:90%; right:20%; color:#14b8a6; font-size:16px;"><i class="fa-solid fa-seedling"></i></div>
+
+<!-- 🌟 白色加大版迷你小方块（6个） -->
+<div class="pixel-float" style="top: 15%; left: 2%; width: 16px; height: 16px; background: #ffffff; border: 1px solid #fbcfe8;"></div>
+<div class="pixel-float" style="top: 45%; left: 3%; width: 16px; height: 16px; background: #ffffff; border: 1px solid #fbcfe8;"></div>
+<div class="pixel-float" style="top: 75%; left: 1.5%; width: 16px; height: 16px; background: #ffffff; border: 1px solid #fbcfe8;"></div>
+<div class="pixel-float" style="top: 30%; right: 2%; width: 16px; height: 16px; background: #ffffff; border: 1px solid #fbcfe8;"></div>
+<div class="pixel-float" style="top: 60%; right: 3%; width: 16px; height: 16px; background: #ffffff; border: 1px solid #fbcfe8;"></div>
+<div class="pixel-float" style="top: 85%; right: 1.5%; width: 16px; height: 16px; background: #ffffff; border: 1px solid #fbcfe8;"></div>
+
+<!-- 简历弹窗 -->
+<div class="resume-modal" id="resumeModal">
+    <div class="resume-content">
+        <div class="close-resume" id="closeResume"><i class="fa-solid fa-xmark"></i></div>
+        <iframe src="resume.pdf" width="100%" height="100%" style="border:none; border-radius:12px;"></iframe>
+    </div>
+</div>
+
+<!-- 导航栏 -->
+<nav class="fixed w-full z-50 top:0 left:0 border-b border-gray-100 bg-white/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                <div class="w-8 h-8 bg-[#FF8B8B] rounded-lg flex items-center justify-center text-white">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <span class="font-bold text-xl tracking-tight text-gray-800">Design</span>
+            </div>
+            <div class="nav-container" id="navContainer">
+                <div class="nav-highlight" id="navHighlight"></div>
+                <a href="#about" class="nav-item text-sm font-bold text-gray-800 hover:text-[#FF8B8B]">关于我</a>
+                <a href="#portfolio" class="nav-item text-sm font-bold text-gray-800 hover:text-[#FF8B8B]">作品集</a>
+                <a href="#contact" class="nav-item text-sm font-bold text-gray-800 hover:text-[#FF8B8B]">联系我</a>
+                <a href="javascript:;" class="nav-item text-sm font-bold text-gray-800 hover:text-[#FF8B8B]" id="openResume">查看简历</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="relative pt-32 pb-20 overflow-hidden">
+    <div class="absolute top-20 left-[10%] w-32 h-32 bg-purple-20 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+    <div class="absolute top-20 right-[10%] w-32 h-32 bg-yellow-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+    <div class="absolute -bottom-8 left-[20%] w-32 h-32 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-6xl md:text-8xl font-black mb-16 tracking-tighter select-none">
+            <span class="text-[#8C5C6B]About</span><span class="text-[#5CB8C4] italic font-serif-italic">AboutMe</span>
+        </h1>
+        <div class="relative w-[300px] h-[340px] mx-auto perspective-1000 group cursor-pointer">
+            <div class="absolute inset-0 bg-[#FFC0CB] rounded-3xl shadow-xl transform transition-transform duration-500 ease-out -rotate-12 -translate-x-4 group-hover:-translate-x-12 group-hover:rotate-[-25deg] flex flex-col items-center justify-center text-white/80 overflow-hidden">
+                <div class="text-center p-4">
+                    <i class="fa-solid fa-paw text-5xl opacity-70 mb-3"></i>
+                    <h3 class="text-2xl font-bold">Puppy Coffee</h3>
+                    <p class="text-sm opacity-80">品牌视觉识别</p>
+                </div>
+            </div>
+            <div class="absolute inset-0 bg-[#89D7F2] rounded-3xl shadow-xl transform transition-transform duration-500 ease-out rotate-6 translate-x-4 group-hover:translate-x-12 group-hover:rotate-[25deg] flex flex-col items-center justify-center text-white/80 overflow-hidden">
+                <div class="text-center p-4">
+                    <i class="fa-solid fa-code text-5xl opacity-70 mb-3"></i>
+                    <h3 class="text-2xl font-bold">动态视觉</h3>
+                    <p class="text-sm opacity-80">粒子AR数字化保护</p>
+                </div>
+            </div>
+            <div class="absolute inset-0 bg-[#FFD93D] rounded-3xl shadow-xl transform transition-transform duration-500 ease-out -rotate-6 translate-y-4 group-hover:translate-y-[-60px] group-hover:rotate-[-20deg] flex flex-col items-center justify-center text-white/80 overflow-hidden">
+                <div class="text-center p-4">
+                    <i class="fa-solid fa-tablet-alt text-5xl opacity-70 mb-3"></i>
+                    <h3 class="text-2xl font-bold">三苏文化</h3>
+                    <p class="text-sm opacity-80">UI界面设计</p>
+                </div>
+            </div>
+            <div class="absolute inset-0 bg-white/60 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 transform transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-95 flex flex-col items-center justify-center text-gray-800 z-20">
+                <div class="text-center px-6">
+                    <h3 class="text-2xl font-bold tracking-widest mb-2 font-serif-italic">Hi，I'm</h3>
+                    <p class="text-lg font-bold uppercase tracking-widest opacity-80">刘莹</p>
+                    <div class="mt-6 w-16 h-1 bg-black/20 rounded-full mx-auto"></div>
+                    <p class="text-xs mt-4 text-gray-500">视觉传达设计</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 inline-block px-4 py-1 rounded-full border border-gray-200 bg-white/50 backdrop-blur-sm text-sm font-bold text-gray-500 shadow-sm">
+            <i class="fa-solid fa-map-marker-alt mr-2 text-[#FF8B8B]"></i>江苏南京</div>
+    </div>
+</section>
+
+<!-- 关于我 -->
+<section id="about" class="py-24 bg-white/80 backdrop-blur-sm relative">
+    <div class="container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-16">
+            <span class="text-xs font-bold tracking-widest text-gray-400 uppercase">About Me</span>
+            <h2 class="text-5xl md:text-6xl font-black mt-4 tracking-tight">
+                刘莹 · <span class="text-[#FF8B8B]">视觉传达设计</span>
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <p class="text-lg text-gray-600 leading-relaxed">深耕设计领域，具备扎实的专业理论功底与丰富的落地实战经验。拥有出色的审美素养、创意构思能力及色彩把控能力。</p>
+                <p class="text-lg text-gray-600 leading-relaxed">熟练运用 AIGC 工具辅助创作，能快速产出创意素材，提升剪辑与视觉制作效率；逻辑清晰严谨，做事认真负责，具备优秀的时间管理与高效执行力。</p>
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">Adobe Suite</span>
+                    <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">KeyShot</span>
+                    <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">AIGC (Midjourney)</span>
+                    <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">影视后期</span>
+                    <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">品牌策划</span>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 shadow-lg">
+                <div class="flex justify-center mb-6">
+                    <img src="my-photo.jpg" alt="个人照片" class="w-56 h-56 rounded-full object-cover border-4 border-white shadow-lg" />
+                </div>
+                <h3 class="text-xl font-bold mb-6 text-gray-800 text-center">个人信息</h3>
+                <div class="space-y-4 text-gray-600">
+                    <div class="flex items-center border-b border-gray-100 pb-3"><i class="fa-solid fa-user mr-4 text-[#FF8B8B]"></i><span>刘莹 | 23岁 | 女</span></div>
+                    <div class="flex items-center border-b border-gray-100 pb-3"><i class="fa-solid fa-graduation-cap mr-4 text-[#5CB8C4]"></i><span>南京工程学院 · 视觉传达设计 (2021-2025)</span></div>
+                    <div class="flex items-center border-b border-gray-100 pb-3"><i class="fa-solid fa-briefcase mr-4 text-[#FFD93D]"></i><span>求职意向：视觉设计师 / AIGC视频制作师</span></div>
+                    <div class="flex items-center"><i class="fa-solid fa-location-arrow mr-4 text-green-500"></i><span>现居：江苏南京</span></div>
+                </div>
+                <button class="mt-8 w-full bg-black text-white py-3 rounded-full font-bold hover:bg-gray-800 transition flex items-center justify-center gap-2" id="showResume">
+                    <i class="fa-solid fa-download"></i>下载 PDF 简历
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 作品集 -->
+<section id="portfolio" class="py-24 bg-[#F9FAFB]/80 backdrop-blur-sm">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-16">
+            <span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Featured Works</span>
+            <h2 class="text-5xl md:text-6xl font-black mt-4 mb-8 tracking-tight">精选 <span class="text-[#FF8B8B]">作品集.</span></h2>
+        </div>
+        <div class="relative w-full h-[500px] mx-auto max-w-6xl">
+            <!-- 点击卡片跳转到作品集页面，替换 href 为你的作品集链接即可 -->
+            <a href="work-1.html" class="absolute top-20 left-[5%] w-[280px] z-40 bg-white rounded-3xl overflow-hidden shadow-2xl card-hover group">
+                <div class="relative h-64 bg-[#FFC0CB] flex items-center justify-center">
+                    <div class="text-white text-center p-6 transform group-hover:scale-110 transition">
+                        <i class="fa-solid fa-paw text-6xl mb-4 opacity-80"></i>
+                        <h3 class="text-2xl font-bold">Puppy Coffee</h3>
+                        <p class="text-white/80">品牌VI与物料设计</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 text-sm">以温馨、可爱和休闲为主题，通过卡通小狗插画和鲜明色彩营造轻松氛围。</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="text-xs px-2 py-1 bg-pink-100 text-pink-600 rounded">品牌VI</span>
+                    </div>
+                </div>
+            </a>
+            <a href="work-2.html" class="absolute top-16 left-[28%] w-[280px] z-30 bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
+                <div class="relative h-64 bg-[#89D7F2] flex items-center justify-center">
+                    <div class="text-white text-center p-6 transform group-hover:scale-110 transition">
+                        <i class="fa-solid fa-vr-cardboard text-6xl mb-4 opacity-80"></i>
+                        <h3 class="text-2xl font-bold">动态视觉</h3>
+                        <p class="text-white/80">粒子AR数字化保护</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 text-sm">对南京牛首山藻井纹样进行数字档案建立与粒子化动态展示。</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded">AR设计</span>
+                    </div>
+                </div>
+            </a>
+            <a href="work-3.html" class="absolute top-12 left-[51%] w-[280px] z-20 bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
+                <div class="relative h-64 bg-[#FFD93D] flex items-center justify-center">
+                    <div class="text-white text-center p-6 transform group-hover:scale-110 transition">
+                        <i class="fa-solid fa-mobile-alt text-6xl mb-4 opacity-80"></i>
+                        <h3 class="text-2xl font-bold">包装设计</h3>
+                        <p class="text-white/80">3D建模渲染</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 text-sm">为BOXSHOT/KEYSHOT 饮品、文创、牛奶包装</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="text-xs px-2 py-1 bg-yellow-200 text-yellow-800 rounded">UI设计</span>
+                    </div>
+                </div>
+            </a>
+            <a href="work-4.html" class="absolute top-8 left-[74%] w-[280px] z-10 bg-white rounded-3xl overflow-hidden shadow-lg card-hover group">
+                <div class="relative h-64 bg-[#A8A8FF] flex items-center justify-center">
+                    <div class="text-white text-center p-6 transform group-hover:scale-110 transition">
+                        <i class="fa-solid fa-robot text-6xl mb-4 opacity-80"></i>
+                        <h3 class="text-2xl font-bold">其他设计</h3>
+                        <p class="text-white/80">UI / IP / VI 设计</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 text-sm">三苏小程序、适老化UI、奇芳阁VI、竹灵节节IP</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="text-xs px-2 py-1 bg-purple-100 text-purple-600 rounded">AIGC</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- 联系我 -->
+<section id="contact" class="py-24 bg-white/80 backdrop-blur-sm relative">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-16">
+            <span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Get In Touch</span>
+            <h2 class="text-5xl md:text-6xl font-black mt-4 tracking-tight">让我们 <span class="text-[#FF8B8B]">聊聊.</span></h2>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-12">
+            <div class="space-y-8">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800 flex items-center"><i class="fa-regular fa-clock mr-3 text-[#5CB8C4]"></i>当前状态</h3>
+                    <div class="space-y-4 text-gray-600">
+                        <div class="flex items-center border-b border-gray-100 pb-3"><i class="fa-solid fa-calendar mr-4 text-[#FF8B8B]"></i><span>📱 19895595223</span></div>
+                        <div class="flex items-center border-b border-gray-100 pb-3"><i class="fa-solid fa-location-dot mr-4 text-red-500"></i><span>📍 江苏省南京市</span></div>
+                        <div class="flex items-center"><span class="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></span><span>💬 微信号：Wxid-haohao-com</span></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">社交媒体</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[#FF8B8B] hover:text-white transition"><i class="fa-brands fa-weixin"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[#5CB8C4] hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center hover:bg-black hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl">
+                <h3 class="text-xl font-bold mb-6 text-gray-800">发送消息</h3>
+                <form>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <input type="text" placeholder="你的名字" class="px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF8B8B]/30">
+                        <input type="email" placeholder="你的邮箱" class="px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF8B8B]/30">
+                    </div>
+                    <textarea placeholder="在这里输入你的想法..." rows="6" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF8B8B]/30 mb-6"></textarea>
+                    <button type="submit" class="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-gray-800 transition w-full md:w-auto">发送消息 <i class="fa-solid fa-paper-plane ml-2"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-12 bg-white/80 backdrop-blur-sm border-t border-gray-100 text-center">
+    <p class="text-gray-500 text-sm">&copy; <span id="year"></span> 刘莹 保留所有权利</p>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const navContainer = document.getElementById('navContainer');
+    const navHighlight = document.getElementById('navHighlight');
+    const navItems = document.querySelectorAll('.nav-item');
+    function setActive(item){ navHighlight.style.left = item.offsetLeft + 'px'; navHighlight.style.width = item.offsetWidth + 'px'; navItems.forEach(i=>i.classList.remove('nav-highlight-text')); item.classList.add('nav-highlight-text'); }
+    navItems.forEach(i=>{ i.addEventListener('mouseenter',()=>setActive(i)); });
+    window.onload = () => setActive(navItems[2]);
+    const modal = document.getElementById('resumeModal');
+    const open = document.getElementById('openResume');
+    const show = document.getElementById('showResume');
+    const close = document.getElementById('closeResume');
+    function openModal(){ modal.classList.add('active'); document.body.style.overflow='hidden'; }
+    function closeModal(){ modal.classList.remove('active'); document.body.style.overflow=''; }
+    open.onclick = openModal;
+    show.onclick = openModal;
+    close.onclick = closeModal;
+    modal.onclick = (e)=>{ if(e.target===modal) closeModal(); }
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
+</script>
+</body>
+</html>
